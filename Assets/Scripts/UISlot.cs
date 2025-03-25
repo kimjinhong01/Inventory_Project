@@ -10,10 +10,11 @@ public class UISlot : MonoBehaviour
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI count;
 
-    public void SetItem(Image background, Image icon, int count)
+    public void SetItem(Sprite background, Sprite icon, int count)
     {
-        this.background = background;
-        this.icon = icon;
+        this.background.sprite = background;
+        this.icon.sprite = icon;
+        this.icon.SetNativeSize();
 
         if (count > 1)
             this.count.text = count.ToString();

@@ -10,6 +10,8 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private Transform slotsParent;
     private List<UISlot> slots;
 
+    public GameObject equipButton;
+
     private void Start()
     {
         menuBtn.onClick.AddListener(UIManager.Instance.MainMenu.OpenMainMenu);
@@ -23,6 +25,14 @@ public class UIInventory : MonoBehaviour
         {
             GameObject slot = Instantiate(slotPrefab, slotsParent);
             slots.Add(slot.GetComponent<UISlot>());
+        }
+    }
+
+    public void SetItem(Sprite background, Sprite icon, int count)
+    {
+        foreach (var slot in slots)
+        {
+            slot.SetItem(background, icon, count);
         }
     }
 }

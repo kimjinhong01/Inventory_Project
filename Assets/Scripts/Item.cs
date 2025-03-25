@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -15,10 +16,15 @@ public class Item : MonoBehaviour
     public Type type { get; private set; }
     public int value { get; private set; }
 
-    public Item(string name, Type type, int value)
+    public Sprite background;
+    public Sprite icon;
+
+    public Item(string name, Type type, int value, Sprite background, Sprite icon)
     {
         this.name = name;
         this.type = type;
         this.value = value;
+        this.background = background;
+        this.icon = icon;
     }
 }
