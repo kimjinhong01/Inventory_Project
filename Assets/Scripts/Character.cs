@@ -26,11 +26,6 @@ public class Character : MonoBehaviour
 
     private List<Item> inventory;
 
-    private void Start()
-    {
-        inventory = new List<Item>();
-    }
-
     public Character(string name, Type type)
     {
         this.name = name;
@@ -66,9 +61,7 @@ public class Character : MonoBehaviour
                 break;
         }
 
-        inventory.Add(new Item("Ä®", Item.Type.Weapon, 10));
-        inventory.Add(new Item("°©¿Ê", Item.Type.Armor, 15));
-        inventory.Add(new Item("À½½Ä", Item.Type.Item, 5));
+        inventory = new List<Item>();
     }
 
     public void AddItem(string name, Item.Type type, int value)

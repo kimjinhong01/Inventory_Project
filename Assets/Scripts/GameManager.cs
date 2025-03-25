@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public void SetData(Character player)
     {
         this.player = player;
-        player.AddItem("º¸È£¸·", Item.Type.Item, 20);
+        this.player.AddItem("Ä®", Item.Type.Weapon, 10);
+        this.player.AddItem("°©¿Ê", Item.Type.Armor, 15);
+        this.player.AddItem("À½½Ä", Item.Type.Item, 5);
     }
 }
