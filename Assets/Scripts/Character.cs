@@ -11,19 +11,19 @@ public class Character : MonoBehaviour
         Mage
     }
 
-    public string name;
-    public Type type;
-    public int level;
-    public int exp;
+    public string name { get; private set; }
+    public Type type { get; private set; }
+    public int level { get; private set; }
+    public int exp { get; private set; }
 
-    public int hp;
-    public int maxHp;
-    public int mp;
-    public int maxMp;
+    public int hp { get; private set; }
+    public int maxHp { get; private set; }
+    public int mp { get; private set; }
+    public int maxMp { get; private set; }
 
-    public int atk;
-    public int def;
-    
+    public int atk { get; private set; }
+    public int def { get; private set; }
+
     public Character(string name, Type type)
     {
         this.name = name;

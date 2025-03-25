@@ -16,7 +16,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelTxt;
     [SerializeField] private TextMeshProUGUI expTxt;
 
-    public Character Player { get; private set; }
+    [SerializeField] private GameManager gameManager;
 
     private void Start()
     {
@@ -28,12 +28,10 @@ public class UIMainMenu : MonoBehaviour
 
     private void Init()
     {
-        Player = new Character("Michael", Character.Type.Archer);
-
-        nameTxt.text = Player.name;
-        typeTxt.text = Enum.GetName(typeof(Character.Type), Player.type);
-        levelTxt.text = Player.level.ToString();
-        expTxt.text = $"{Player.exp}/{50}";
+        nameTxt.text = gameManager.Player.name;
+        typeTxt.text = Enum.GetName(typeof(Character.Type), gameManager.Player.type);
+        levelTxt.text = gameManager.Player.level.ToString();
+        expTxt.text = $"{gameManager.Player.exp}/{50}";
     }
 
     public void OpenMainMenu()

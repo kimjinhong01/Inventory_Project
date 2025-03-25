@@ -32,29 +32,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject menuUI;
-    [SerializeField] private GameObject statusUI;
-    [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private UIMainMenu mainMenu;
+    [SerializeField] private UIStatus status;
+    [SerializeField] private UIInventory inventory;
 
-    public UIMainMenu MainMenu
-    {
-        get
-        {
-            return menuUI.GetComponent<UIMainMenu>();
-        }
-    }
-    public UIStatus Status
-    {
-        get
-        {
-            return statusUI.GetComponent<UIStatus>();
-        }
-    }
-    public UIInventory Inventory
-    {
-        get
-        {
-            return inventoryUI.GetComponent<UIInventory>();
-        }
-    }
+    public UIMainMenu MainMenu { get { return mainMenu; } }
+    public UIStatus Status { get { return status; } }
+    public UIInventory Inventory { get { return inventory; } }
 }

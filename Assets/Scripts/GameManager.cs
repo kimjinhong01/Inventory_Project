@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private Character player { get; set; }
+    private Character player;
+    public Character Player { get { return player; } }
 
+    public GameManager()
+    {
+        player = new Character("Michael", Character.Type.Archer);
+    }
 
+    public void SetData(Character player)
+    {
+        this.player = player;
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class UIStatus : MonoBehaviour
     [SerializeField] private TextMeshProUGUI atkTxt;
     [SerializeField] private TextMeshProUGUI defTxt;
 
+    [SerializeField] private GameManager gameManager;
+
     private void Start()
     {
         menuBtn.onClick.AddListener(UIManager.Instance.MainMenu.OpenMainMenu);
@@ -25,10 +28,10 @@ public class UIStatus : MonoBehaviour
 
     private void Init()
     {
-        hpTxt.text = $"{mainMenu.Player.hp}/{mainMenu.Player.maxHp}";
-        mpTxt.text = $"{mainMenu.Player.mp}/{mainMenu.Player.maxMp}";
+        hpTxt.text = $"{gameManager.Player.hp}/{gameManager.Player.maxHp}";
+        mpTxt.text = $"{gameManager.Player.mp}/{gameManager.Player.maxMp}";
 
-        atkTxt.text = mainMenu.Player.atk.ToString();
-        defTxt.text = mainMenu.Player.def.ToString();
+        atkTxt.text = gameManager.Player.atk.ToString();
+        defTxt.text = gameManager.Player.def.ToString();
     }
 }
