@@ -24,6 +24,13 @@ public class Character : MonoBehaviour
     public int atk { get; private set; }
     public int def { get; private set; }
 
+    private List<Item> inventory;
+
+    private void Start()
+    {
+        inventory = new List<Item>();
+    }
+
     public Character(string name, Type type)
     {
         this.name = name;
@@ -58,5 +65,24 @@ public class Character : MonoBehaviour
                 def = 0;
                 break;
         }
+
+        inventory.Add(new Item("Ä®", Item.Type.Weapon, 10));
+        inventory.Add(new Item("°©¿Ê", Item.Type.Armor, 15));
+        inventory.Add(new Item("À½½Ä", Item.Type.Item, 5));
+    }
+
+    public void AddItem(string name, Item.Type type, int value)
+    {
+        inventory.Add(new Item(name, type, value));
+    }
+
+    public void Equip(int index)
+    {
+        // ÀåÂø
+    }
+
+    public void UnEquip()
+    {
+
     }
 }

@@ -15,5 +15,6 @@ public class GameManager : MonoBehaviour
     public void SetData(Character player)
     {
         this.player = player;
+        player.AddItem("º¸È£¸·", Item.Type.Item, 20);
     }
 }
