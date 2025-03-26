@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
+    public GameManager manager;
+
     public List<UISlot> slots;
 
     public Button menuBtn;
@@ -23,7 +25,7 @@ public class UIInventory : MonoBehaviour
     {
         menuBtn.onClick.AddListener(UIManager.Instance.MainMenu.OpenMainMenu);
 
-        slots = new List<UISlot>(slotsParent.childCount);
+        slots = new List<UISlot>(new UISlot[slotsParent.childCount]);
 
         for (int i = 0; i < slots.Count; i++)
         {
@@ -122,6 +124,29 @@ public class UIInventory : MonoBehaviour
         UpdateUI();
 
         SelectItem(selectedItemIndex);
+
+        for (int i = 0; i < slots[curEquipIndex].item.consumables.Length; i++)
+        {
+            switch (slots[curEquipIndex].item.consumables[i].type)
+            {
+                case ConsumableType.Health:
+                    manager.Player.ExtraHealth(slots[curEquipIndex].item.consumables[i].value);
+                    UIManager.Instance.Status.UpdateHP(slots[curEquipIndex].item.consumables[i].value);
+                    break;
+                case ConsumableType.MP:
+                    manager.Player.ExtraMP(slots[curEquipIndex].item.consumables[i].value);
+                    UIManager.Instance.Status.UpdateMP(slots[curEquipIndex].item.consumables[i].value);
+                    break;
+                case ConsumableType.ATK:
+                    manager.Player.ExtraATK(slots[curEquipIndex].item.consumables[i].value);
+                    UIManager.Instance.Status.UpdateATK(slots[curEquipIndex].item.consumables[i].value);
+                    break;
+                case ConsumableType.DEF:
+                    manager.Player.ExtraDEF(slots[curEquipIndex].item.consumables[i].value);
+                    UIManager.Instance.Status.UpdateDEF(slots[curEquipIndex].item.consumables[i].value);
+                    break;
+            }
+        }
     }
 
     public void OnUnEquipButton()

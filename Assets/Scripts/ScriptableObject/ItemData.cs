@@ -13,14 +13,16 @@ public enum ItemType
 public enum ConsumableType
 {
     Health,
-    Hunger
+    MP,
+    ATK,
+    DEF
 }
 
 [Serializable]
 public class ItemDataConsumable
 {
     public ConsumableType type;
-    public float value;
+    public int value;
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]

@@ -26,12 +26,32 @@ public class UIStatus : MonoBehaviour
         Init();
     }
 
-    private void Init()
+    public void Init()
     {
         hpTxt.text = $"{gameManager.Player.hp}/{gameManager.Player.maxHp}";
         mpTxt.text = $"{gameManager.Player.mp}/{gameManager.Player.maxMp}";
 
         atkTxt.text = gameManager.Player.atk.ToString();
         defTxt.text = gameManager.Player.def.ToString();
+    }
+
+    public void UpdateHP(int value)
+    {
+        hpTxt.text = $"{gameManager.Player.hp} +{value}/{gameManager.Player.maxHp}";
+    }
+
+    public void UpdateMP(int value)
+    {
+        mpTxt.text = $"{gameManager.Player.mp} +{value}/{gameManager.Player.maxMp}";
+    }
+
+    public void UpdateATK(int value)
+    {
+        atkTxt.text = $"{gameManager.Player.atk} +{value}";
+    }
+
+    public void UpdateDEF(int value)
+    {
+        defTxt.text = $"{gameManager.Player.def} +{value}";
     }
 }

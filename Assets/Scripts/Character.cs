@@ -17,12 +17,16 @@ public class Character : MonoBehaviour
     public int exp { get; private set; }
 
     public int hp { get; private set; }
+    public int oldHP { get; private set; }
     public int maxHp { get; private set; }
     public int mp { get; private set; }
+    public int oldMP { get; private set; }
     public int maxMp { get; private set; }
 
     public int atk { get; private set; }
+    public int oldAtk { get; private set; }
     public int def { get; private set; }
+    public int oldDef { get; private set; }
 
 
     public Character(string name, Type type)
@@ -59,5 +63,29 @@ public class Character : MonoBehaviour
                 def = 0;
                 break;
         }
+    }
+
+    public void ExtraHealth(int value)
+    {
+        oldHP = hp;
+        hp += value;
+    }
+
+    public void ExtraMP(int value)
+    {
+        oldMP = mp;
+        mp += value;
+    }
+
+    public void ExtraATK(int value)
+    {
+        oldAtk = atk;
+        atk += value;
+    }
+
+    public void ExtraDEF(int value)
+    {
+        oldDef = def;
+        def += value;
     }
 }
