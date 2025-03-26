@@ -24,7 +24,6 @@ public class Character : MonoBehaviour
     public int atk { get; private set; }
     public int def { get; private set; }
 
-    private List<Item> inventory;
 
     public Character(string name, Type type)
     {
@@ -60,22 +59,5 @@ public class Character : MonoBehaviour
                 def = 0;
                 break;
         }
-
-        inventory = new List<Item>();
-    }
-
-    public void AddItem(string name, Item.Type type, int value, Sprite background, Sprite icon)
-    {
-        inventory.Add(new Item(name, type, value, background, icon));
-    }
-
-    public void Equip(int index)
-    {
-        // ÀåÂø
-    }
-
-    public void UnEquip()
-    {
-
     }
 }

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3f5f310493d3b4bad39b1a63b6303d, type: 3}
-  m_Name: Sword
+  m_Script: {fileID: 11500000, guid: 1fc1ad571b8b23c4e91f9e83fdce8917, type: 3}
+  m_Name: Item_Ax
   m_EditorClassIdentifier: 
-  displayName: "\uCE7C"
-  description: "\uD3C9\uBC94\uD55C \uCE7C\uC774\uB2E4."
+  displayName: "\uB3C4\uB07C"
+  description: "\uC790\uC6D0\uC744 \uCC44\uCDE8\uD560 \uB54C \uC0AC\uC6A9\uD569\uB2C8\uB2E4."
   type: 0
-  background: {fileID: 21300000, guid: dd77367546bf4433dbbb2317a935df54, type: 3}
-  icon: {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
+  icon: {fileID: 21300000, guid: 79b47bb526f2f407ea5a899bf93524fc, type: 3}
   canStack: 0
   maxStackAmount: 0
+  consumables: []

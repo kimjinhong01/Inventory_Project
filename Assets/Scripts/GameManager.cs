@@ -7,19 +7,16 @@ public class GameManager : MonoBehaviour
     private Character player;
     public Character Player { get { return player; } }
 
-    public Sprite[] backgrounds;
-    public Sprite[] icons;
+    public ItemData[] items;
 
     public GameManager()
     {
         player = new Character("Michael", Character.Type.Archer);
     }
 
-    public void SetData(Character player)
+    private void Start()
     {
-        this.player = player;
-        this.player.AddItem("Ä®", Item.Type.Weapon, 10, backgrounds[0], icons[0]);
-        this.player.AddItem("°©¿Ê", Item.Type.Armor, 15, backgrounds[1], icons[1]);
-        this.player.AddItem("À½½Ä", Item.Type.Item, 5, backgrounds[2], icons[2]);
+        for (int i = 0; i < items.Length; i++)
+            UIManager.Instance.Inventory.AddItem(items[i]);
     }
 }

@@ -9,7 +9,7 @@ public class UISlot : MonoBehaviour
 {
     public ItemData item;
 
-    public Image background;
+    public Button button;
     public Image icon;
     public TextMeshProUGUI quantityText;
     private Outline outline;
@@ -30,10 +30,9 @@ public class UISlot : MonoBehaviour
         outline.enabled = equipped;
     }
 
-    public void SetItem()
+    public void Set()
     {
-        background.gameObject.SetActive(true);
-        background.sprite = item.background;
+        icon.gameObject.SetActive(true);
         icon.sprite = item.icon;
         quantityText.text = quantity > 1 ? quantity.ToString() : string.Empty;
 
@@ -46,12 +45,12 @@ public class UISlot : MonoBehaviour
     public void Clear()
     {
         item = null;
-        background.gameObject.SetActive(false);
+        icon.gameObject.SetActive(false);
         quantityText.text = string.Empty;
     }
 
     public void OnClickButton()
     {
-        //inventory.SelectItem(index);
+        inventory.SelectItem(index);
     }
 }
