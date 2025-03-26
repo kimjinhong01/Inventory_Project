@@ -67,7 +67,6 @@ public class Character : MonoBehaviour
     public void AddItem(string name, Item.Type type, int value, Sprite background, Sprite icon)
     {
         inventory.Add(new Item(name, type, value, background, icon));
-        UIManager.Instance.Inventory.SetItem(background, icon, 1);
     }
 
     public void Equip(int index)

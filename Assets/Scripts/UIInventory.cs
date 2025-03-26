@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
-    [SerializeField] private Button menuBtn;
-    [SerializeField] private GameObject slotPrefab;
-    [SerializeField] private Transform slotsParent;
-    private List<UISlot> slots;
+    public List<UISlot> slots;
+
+    public Button menuBtn;
+    public GameObject slotPrefab;
+    public Transform slotsParent;
 
     public GameObject equipButton;
+    public GameObject unequipButton;
+
+    ItemData selectedItem;
+    int selectedItemIndex = 0;
 
     private void Start()
     {
@@ -25,14 +30,16 @@ public class UIInventory : MonoBehaviour
         {
             GameObject slot = Instantiate(slotPrefab, slotsParent);
             slots.Add(slot.GetComponent<UISlot>());
+            slots[i].index = i;
+            slots[i].inventory = this;
         }
+
+        equipButton.SetActive(false);
+        unequipButton.SetActive(false);
     }
 
-    public void SetItem(Sprite background, Sprite icon, int count)
+    public void SetItem()
     {
-        foreach (var slot in slots)
-        {
-            slot.SetItem(background, icon, count);
-        }
+
     }
 }

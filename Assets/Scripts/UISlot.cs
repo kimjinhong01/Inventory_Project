@@ -1,27 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UISlot : MonoBehaviour
 {
-    [SerializeField] private Image background;
-    [SerializeField] private Image icon;
-    [SerializeField] private TextMeshProUGUI count;
+    public ItemData item;
 
-    public void SetItem(Sprite background, Sprite icon, int count)
+    public Image background;
+    public Image icon;
+    public TextMeshProUGUI quantityText;
+    private Outline outline;
+
+    public UIInventory inventory;
+
+    public int index;
+    public bool equipped;
+    public int quantity;
+
+    private void Awake()
     {
-        this.background.sprite = background;
-        this.icon.sprite = icon;
-        this.icon.SetNativeSize();
-
-        if (count > 1)
-            this.count.text = count.ToString();
+        outline = GetComponent<Outline>();
     }
 
-    public void RefreshUI()
+    private void OnEnable()
     {
+        outline.enabled = equipped;
+    }
 
+    public void SetItem()
+    {
+        background.gameObject.SetActive(true);
+        background.sprite = item.background;
+        icon.sprite = item.icon;
+        quantityText.text = quantity > 1 ? quantity.ToString() : string.Empty;
+
+        if (outline != null)
+        {
+            outline.enabled = equipped;
+        }
+    }
+
+    public void Clear()
+    {
+        item = null;
+        background.gameObject.SetActive(false);
+        quantityText.text = string.Empty;
+    }
+
+    public void OnClickButton()
+    {
+        //inventory.SelectItem(index);
     }
 }
